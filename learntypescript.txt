@@ -1,0 +1,52 @@
+// other types we have are string, number, undefined, null,boolean, object, tuple[23,'abc'] ,array, 
+let name : string = 'Raju';     // if we use string the type should be string we have 
+let age :number = 23;  
+let ooh : any = ['orei',5,true, {vadhu : 'ela'}]  // if we use any it will allow to define the variable any
+     
+let isFine : boolean = true;
+let numarr : number[] = [0,20,3]
+let tupless : [number,string] = [5,'elaunaru']     
+let objjj : object = {entadi : 'super'}        //but shouldnt recomment using like this  
+//so we use Type keyword or interface
+
+ type Person = {
+  name : string,
+  age : number
+ }
+let person : Person= { name :'Ravi', age : 20}   //uses the above type or interface 
+let lotsofPeople : Person[] ;
+let twovalue : string | number ;    // this | is called union and helps in giving two types to the variable
+twovalue = 'Hey there';
+twovalue = 45  
+function add(a : number,b : number){                     // it says a b has any type so we need to change
+  return a+b
+}
+let mult : Function ;         // but not recommended
+let printName : (name : string) => void;          //it means it returns void(undefined), we change it to number or string or boolean 
+let printNames : (name : string) => never;           //it wont return anything
+let oolala : unknown ;             // unknown is like any but we dont use any anymore as any is like JS
+
+ // ALIAS has 2 types type or interface so 
+
+ type X ={
+   a : string,
+   b : number
+ }
+ type Y = X & {             //this & means Y contains X too so if we dont give a b values while defining y it gives errors
+  c : string,
+  d : number
+ }
+ interface Super {          //so these doesnt have = sign and we have to use 
+   a : string,
+   b: number
+ }
+ 
+ interface Duper extends Super {   // and we have to use extends for joining any interface or type to this
+   c : string,
+   d : number
+ }
+
+ type Z = Duper & {           // type can use interface using & and interface can use type as interface SCD extends Z {}
+    e : boolean,
+    f : number[]
+ }
